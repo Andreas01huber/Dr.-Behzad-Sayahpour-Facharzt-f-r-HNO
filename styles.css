@@ -490,3 +490,117 @@ th {
     align-items: flex-start;
   }
 }
+/* =========================
+   MOBILE IMPROVEMENTS
+   ========================= */
+
+/* Damit Anker nicht vom Sticky-Header verdeckt werden */
+section[id] {
+  scroll-margin-top: 90px;
+}
+
+/* Header: etwas kompakter auf Mobile */
+@media (max-width: 680px) {
+  .nav-container {
+    min-height: 64px;
+  }
+
+  .logo {
+    font-size: 1.05rem;
+  }
+
+  .main-nav {
+    top: 64px;
+  }
+}
+
+/* Hero: bessere Abstände, Text lesbarer, Logo kleiner */
+@media (max-width: 680px) {
+  .hero {
+    min-height: 62vh;
+  }
+
+  .hero-content {
+    text-align: left;
+    padding: 1.2rem 0;
+  }
+
+  .hero-logo {
+    width: 110px;
+    height: 110px;
+    margin: 0 0 14px 0;
+    border-radius: 16px;
+  }
+
+  .hero h1 {
+    font-size: 2.1rem;
+    line-height: 1.1;
+  }
+
+  .hero p {
+    font-size: 1.15rem;
+    margin: 0.45rem 0 1.1rem;
+  }
+
+  .cta-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.9rem 1rem;
+  }
+}
+
+/* Sections & Cards: weniger „Luft“, bessere Lesbarkeit */
+@media (max-width: 680px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .card {
+    padding: 1.15rem;
+  }
+
+  .section-title {
+    margin-bottom: 0.9rem;
+  }
+}
+
+/* Tabellen (Ordinationszeiten): besser auf Mobile */
+@media (max-width: 680px) {
+  table {
+    font-size: 0.95rem;
+  }
+
+  th,
+  td {
+    padding: 0.65rem;
+    white-space: nowrap;
+  }
+}
+
+/* Galerie: größere Bilder & weniger „kleinteilig“ */
+@media (max-width: 680px) {
+  .gallery-item img {
+    height: 200px;
+  }
+}
+
+/* Kontakt: Map nicht so riesig */
+@media (max-width: 680px) {
+  .map-card iframe {
+    min-height: 260px;
+  }
+}
+
+/* Impressum: Grid auf 1 Spalte auf Mobile (falls du die neue Impressum-Struktur nutzt) */
+@media (max-width: 680px) {
+  .impressum-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Online Services: Button & Layout mobil optimieren (falls du die modernisierte Struktur nutzt) */
+@media (max-width: 680px) {
+  .online-header .cta-btn {
+    width: 100%;
+  }
+}
