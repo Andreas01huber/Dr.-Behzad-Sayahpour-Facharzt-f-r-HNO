@@ -121,3 +121,49 @@ document.addEventListener('keydown', (event) => {
   }
 
 });
+// HERO Hintergrund-Slideshow aus der Galerie (alle 5 Sekunden, weiches Fade)
+(function () {
+  const layerA = document.querySelector(".hero-bg-a");
+  const layerB = document.querySelector(".hero-bg-b");
+  if (!layerA || !layerB) return;
+
+  // Bilder aus der Galerie holen (data-full nutzen!)
+  const galleryButtons = Array.from(document.querySelectorAll(".gallery-item"));
+  const images = galleryButtons
+    .map((btn) => btn.getAttribute("data-full"))
+    .filter(Boolean);
+
+  // Fallback, falls keine Galerie gefunden wird
+  if (images.length === 0) {
+    images.push("0488-300x198-1.jpg");
+  }
+
+  // Preload für flüssigeres Laden
+  images.forEach((src) => {
+    const img = new Image();
+    img.src = src;
+  });
+
+  let index = 0;
+  let showA = true;
+
+  // Startbild setzen
+  layerA.style.backgroundImage = `url("${images[0]}")`;
+
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    const nextSrc = images[index];
+
+    if (showA) {
+      layerB.style.backgroundImage = `url("${nextSrc}")`;
+      layerB.style.opacity = "1";
+      layerA.style.opacity = "0";
+    } else {
+      layerA.style.backgroundImage = `url("${nextSrc}")`;
+      layerA.style.opacity = "1";
+      layerB.style.opacity = "0";
+    }
+
+    showA = !showA;
+  }, 5000);
+})();
