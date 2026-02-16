@@ -128,6 +128,50 @@ body {
   z-index: 0;
   pointer-events: none;
 }
+/* ✅ HERO als „Fenster“ (kleiner = weniger Skalierung = schärfer) */
+.hero {
+  display: grid;
+  place-items: center;
+  padding: 2.5rem 0;
+}
+
+/* Das Fenster, in dem die Slideshow läuft */
+.hero-window {
+  width: min(1100px, 92%);
+  height: min(560px, 70vh);
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+/* Gradient muss jetzt auf hero-window, nicht auf .hero */
+.hero-window::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.88),
+    rgba(31, 79, 140, 0.2)
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Overlay über Gradient und Bildern */
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+/* Bilder-Layer bleiben innerhalb vom Fenster */
+.hero-bg {
+  z-index: 0;
+}
 
 .hero-overlay {
   min-height: inherit;
