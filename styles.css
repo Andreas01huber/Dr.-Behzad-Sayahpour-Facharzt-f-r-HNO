@@ -350,3 +350,46 @@ th {
     grid-template-columns: 1fr;
   }
 }
+/* =========================
+   IMPRESSUM MODERN
+   ========================= */
+
+.impressum-card {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.impressum-intro {
+  margin-bottom: 2rem;
+  color: var(--secondary);
+}
+
+.impressum-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.impressum-block h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.impressum-block p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.impressum-block.full {
+  margin-top: 1rem;
+}
+
+.impressum-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(95,102,112,0.2);
+  color: var(--secondary);
+  font-size: 0.9rem;
+}
