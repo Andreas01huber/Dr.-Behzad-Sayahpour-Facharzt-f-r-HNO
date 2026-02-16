@@ -190,14 +190,7 @@ body {
   text-align: center;
 }
 
-/* ✅ Icons in den Schwerpunkten */
-.mini-card i {
-  width: 42px;
-  height: 42px;
-  margin: 0 auto 10px auto;
-  display: block;
-  color: var(--primary);
-}
+
 
 .mini-card h4 {
   margin: 0;
