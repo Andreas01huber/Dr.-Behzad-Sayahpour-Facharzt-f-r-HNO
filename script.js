@@ -44,3 +44,9 @@ document.querySelectorAll('a[href="#top"]').forEach((link) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
+// Mobile Menü schließen, wenn ein Link geklickt wird
+document.querySelectorAll(".main-nav a").forEach((a) => {
+  a.addEventListener("click", () => {
+    document.querySelector(".main-nav").classList.remove("open");
+  });
+});
