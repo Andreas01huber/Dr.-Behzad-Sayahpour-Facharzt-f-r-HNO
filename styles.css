@@ -393,3 +393,100 @@ th {
   color: var(--secondary);
   font-size: 0.9rem;
 }
+/* =========================
+   ONLINE-SERVICES MODERN
+   ========================= */
+
+.online-card {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.online-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(95,102,112,0.18);
+}
+
+.online-kicker {
+  margin: 0;
+  color: var(--secondary);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.online-title {
+  margin: 0.35rem 0 0;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.online-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.online-block {
+  background: rgba(31, 79, 140, 0.04);
+  border: 1px solid rgba(31, 79, 140, 0.12);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.online-block h3 {
+  margin: 0 0 0.5rem;
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+.online-block p {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+}
+
+.online-block a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.online-block a:hover {
+  text-decoration: underline;
+}
+
+.online-note {
+  background: rgba(95, 102, 112, 0.06);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.online-note p {
+  margin: 0 0 0.6rem;
+}
+
+.online-legal {
+  margin: 0.3rem 0 0;
+  color: var(--secondary);
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 1060px) {
+  .online-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .online-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
