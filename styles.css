@@ -1,3 +1,4 @@
+```css
 :root {
   --primary: #1f4f8c;
   --primary-soft: #2f5f9b;
@@ -30,6 +31,7 @@ body {
   margin: 0 auto;
 }
 
+/* Sticky Header */
 .site-header {
   position: sticky;
   top: 0;
@@ -51,12 +53,9 @@ body {
   color: var(--primary);
   font-size: 1.15rem;
   font-weight: 700;
-
-  /* ✅ HIER EINGEFÜGT */
   text-decoration: none;
   cursor: pointer;
 }
-
 
 .main-nav {
   display: flex;
@@ -85,45 +84,21 @@ body {
   font-size: 1.5rem;
 }
 
-/* ✅ HERO: Background auf echtes Bild geändert (damit kein 404 entsteht) */
+/* Anchor offset for sticky header */
+section[id] {
+  scroll-margin-top: 90px;
+}
+
+/* HERO (Slideshow in Window) */
 .hero {
   min-height: 70vh;
   position: relative;
   overflow: hidden;
-}
-
-/* 2 Layer für weiches Überblenden */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transition: opacity 800ms ease;
-  will-change: opacity;
-}
-
-/* Default: A sichtbar, B unsichtbar */
-.hero-bg-a { opacity: 1; }
-.hero-bg-b { opacity: 0; }
-
-/* Overlay bleibt darüber */
-.hero-overlay {
-  position: relative;
-  z-index: 1;
-  min-height: inherit;
-  display: grid;
-  place-items: center;
-}
-
-
-/* ✅ HERO als „Fenster“ (kleiner = weniger Skalierung = schärfer) */
-.hero {
   display: grid;
   place-items: center;
   padding: 2.5rem 0;
 }
 
-/* Das Fenster, in dem die Slideshow läuft */
 .hero-window {
   width: min(1100px, 92%);
   height: min(560px, 70vh);
@@ -133,7 +108,25 @@ body {
   box-shadow: var(--shadow);
 }
 
-/* Gradient muss jetzt auf hero-window, nicht auf .hero */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 800ms ease;
+  will-change: opacity;
+  z-index: 0;
+}
+
+.hero-bg-a {
+  opacity: 1;
+}
+
+.hero-bg-b {
+  opacity: 0;
+}
+
+/* Gradient overlay in window */
 .hero-window::after {
   content: "";
   position: absolute;
@@ -147,7 +140,6 @@ body {
   pointer-events: none;
 }
 
-/* Overlay über Gradient und Bildern */
 .hero-overlay {
   position: relative;
   z-index: 2;
@@ -156,18 +148,10 @@ body {
   place-items: center;
 }
 
-/* Bilder-Layer bleiben innerhalb vom Fenster */
-.hero-bg {
-  z-index: 0;
-}
-
-
-
 .hero-content {
   text-align: left;
 }
 
-/* ✅ LOGO im Hero (neu, passend zu deiner index.html) */
 .hero-logo {
   width: 150px;
   height: 150px;
@@ -205,6 +189,7 @@ body {
   background: var(--primary-soft);
 }
 
+/* Sections & Cards */
 .section {
   padding: 5rem 0;
 }
@@ -249,15 +234,13 @@ body {
   text-align: center;
 }
 
-
-
 .mini-card h4 {
   margin: 0;
   color: var(--secondary);
   font-size: 1.2rem;
 }
 
-
+/* Tables */
 .table-card {
   overflow-x: auto;
 }
@@ -283,6 +266,7 @@ th {
   font-weight: 500;
 }
 
+/* Map */
 .map-card iframe {
   width: 100%;
   min-height: 340px;
@@ -290,10 +274,12 @@ th {
   border-radius: 8px;
 }
 
+/* Team */
 .team-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+/* Gallery */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -321,6 +307,7 @@ th {
   transform: scale(1.03);
 }
 
+/* Footer */
 .site-footer {
   padding: 1.4rem 0;
   text-align: center;
@@ -329,6 +316,7 @@ th {
   color: var(--secondary);
 }
 
+/* Lightbox */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -363,56 +351,7 @@ th {
   cursor: pointer;
 }
 
-@media (max-width: 1060px) {
-  .three-cols,
-  .team-grid,
-  .gallery-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .two-cols {
-    grid-template-columns: 1fr;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .main-nav {
-    position: absolute;
-    top: 76px;
-    right: 4%;
-    left: 4%;
-    padding: 1rem;
-    background: var(--white);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.7rem;
-  }
-
-  .main-nav.open {
-    display: flex;
-  }
-}
-
-@media (max-width: 680px) {
-  .section {
-    padding: 3.5rem 0;
-  }
-
-  .three-cols,
-  .team-grid,
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-}
-/* =========================
-   IMPRESSUM MODERN
-   ========================= */
-
+/* Impressum modern */
 .impressum-card {
   max-width: 900px;
   margin: 0 auto;
@@ -448,14 +387,12 @@ th {
 .impressum-footer {
   margin-top: 2rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(95,102,112,0.2);
+  border-top: 1px solid rgba(95, 102, 112, 0.2);
   color: var(--secondary);
   font-size: 0.9rem;
 }
-/* =========================
-   ONLINE-SERVICES MODERN
-   ========================= */
 
+/* Online Services modern */
 .online-card {
   max-width: 1000px;
   margin: 0 auto;
@@ -468,7 +405,7 @@ th {
   gap: 1rem;
   padding-bottom: 1.2rem;
   margin-bottom: 1.2rem;
-  border-bottom: 1px solid rgba(95,102,112,0.18);
+  border-bottom: 1px solid rgba(95, 102, 112, 0.18);
 }
 
 .online-kicker {
@@ -540,6 +477,39 @@ th {
 
 /* Responsive */
 @media (max-width: 1060px) {
+  .three-cols,
+  .team-grid,
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .two-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 76px;
+    right: 4%;
+    left: 4%;
+    padding: 1rem;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
   .online-grid {
     grid-template-columns: 1fr;
   }
@@ -549,16 +519,7 @@ th {
     align-items: flex-start;
   }
 }
-/* =========================
-   MOBILE IMPROVEMENTS
-   ========================= */
 
-/* Damit Anker nicht vom Sticky-Header verdeckt werden */
-section[id] {
-  scroll-margin-top: 90px;
-}
-
-/* Header: etwas kompakter auf Mobile */
 @media (max-width: 680px) {
   .nav-container {
     min-height: 64px;
@@ -571,16 +532,29 @@ section[id] {
   .main-nav {
     top: 64px;
   }
-}
 
-/* Hero: bessere Abstände, Text lesbarer, Logo kleiner */
-@media (max-width: 680px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .card {
+    padding: 1.15rem;
+  }
+
+  .section-title {
+    margin-bottom: 0.9rem;
+  }
+
   .hero {
     min-height: 62vh;
+    padding: 1.6rem 0;
+  }
+
+  .hero-window {
+    height: min(520px, 62vh);
   }
 
   .hero-content {
-    text-align: left;
     padding: 1.2rem 0;
   }
 
@@ -606,25 +580,13 @@ section[id] {
     text-align: center;
     padding: 0.9rem 1rem;
   }
-}
 
-/* Sections & Cards: weniger „Luft“, bessere Lesbarkeit */
-@media (max-width: 680px) {
-  .section {
-    padding: 3rem 0;
+  .three-cols,
+  .team-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
   }
 
-  .card {
-    padding: 1.15rem;
-  }
-
-  .section-title {
-    margin-bottom: 0.9rem;
-  }
-}
-
-/* Tabellen (Ordinationszeiten): besser auf Mobile */
-@media (max-width: 680px) {
   table {
     font-size: 0.95rem;
   }
@@ -634,32 +596,21 @@ section[id] {
     padding: 0.65rem;
     white-space: nowrap;
   }
-}
 
-/* Galerie: größere Bilder & weniger „kleinteilig“ */
-@media (max-width: 680px) {
   .gallery-item img {
     height: 200px;
   }
-}
 
-/* Kontakt: Map nicht so riesig */
-@media (max-width: 680px) {
   .map-card iframe {
     min-height: 260px;
   }
-}
 
-/* Impressum: Grid auf 1 Spalte auf Mobile (falls du die neue Impressum-Struktur nutzt) */
-@media (max-width: 680px) {
   .impressum-grid {
     grid-template-columns: 1fr;
   }
-}
 
-/* Online Services: Button & Layout mobil optimieren (falls du die modernisierte Struktur nutzt) */
-@media (max-width: 680px) {
   .online-header .cta-btn {
     width: 100%;
   }
 }
+```
