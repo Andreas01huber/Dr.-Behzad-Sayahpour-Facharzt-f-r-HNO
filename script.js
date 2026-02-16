@@ -44,3 +44,10 @@ document.querySelectorAll('a[href="#top"]').forEach((link) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
+// Beim Neuladen immer oben starten (Hash wie #kontakt entfernen)
+window.addEventListener("load", () => {
+  if (window.location.hash) {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+    window.scrollTo(0, 0);
+  }
+});
