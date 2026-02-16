@@ -115,19 +115,7 @@ body {
   place-items: center;
 }
 
-/* Verlauf (Gradient) darüber */
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.88),
-    rgba(31, 79, 140, 0.2)
-  );
-  z-index: 0;
-  pointer-events: none;
-}
+
 /* ✅ HERO als „Fenster“ (kleiner = weniger Skalierung = schärfer) */
 .hero {
   display: grid;
@@ -173,11 +161,7 @@ body {
   z-index: 0;
 }
 
-.hero-overlay {
-  min-height: inherit;
-  display: grid;
-  place-items: center;
-}
+
 
 .hero-content {
   text-align: left;
