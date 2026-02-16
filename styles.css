@@ -80,6 +80,7 @@ body {
   font-size: 1.5rem;
 }
 
+/* ✅ HERO: Background auf echtes Bild geändert (damit kein 404 entsteht) */
 .hero {
   min-height: 70vh;
   background-image: linear-gradient(
@@ -87,7 +88,7 @@ body {
       rgba(255, 255, 255, 0.88),
       rgba(31, 79, 140, 0.2)
     ),
-    url("images/ordination-hero.jpg");
+    url("0488-300x198-1.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -100,6 +101,15 @@ body {
 
 .hero-content {
   text-align: left;
+}
+
+/* ✅ LOGO im Hero (neu, passend zu deiner index.html) */
+.hero-logo {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 0 0 18px 0;
+  border-radius: 18px;
 }
 
 .hero h1 {
