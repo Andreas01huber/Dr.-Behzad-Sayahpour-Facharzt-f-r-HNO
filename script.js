@@ -37,3 +37,10 @@ lightbox?.addEventListener('click', (event) => {
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closeLightbox();
 });
+// Immer ganz nach oben, wenn auf Home/Logo geklickt wird
+document.querySelectorAll('a[href="#top"]').forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
